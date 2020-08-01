@@ -1,5 +1,6 @@
 package com.sceon.leetcode;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -25,6 +26,7 @@ class ListNode{
 }
 public class LeetCode01 {
     public static void main(String[] args) {
+        HashMap<String,Object> map = new HashMap<>();
         ListNode l1 = new ListNode(5);
         l1.next = new ListNode(6);
         l1.next.next = new ListNode(7);
