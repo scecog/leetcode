@@ -15,11 +15,12 @@ import java.util.List;
  */
 public class LeetCode15 {
     public static void main(String[] args) {
-        int[] nums = {-1,0,1,2,-1,-4};
+        int[] nums = {-1, 0, 1, 2, -1, -4};
         List<List<Integer>> lists = threeSum(nums);
         System.out.println(lists.size());
 
     }
+
     /*
      * 解题思路，数组排序，然后双指针
      * 首先，当数组的值大于0时，此时三数之和肯定不等于0
@@ -31,23 +32,23 @@ public class LeetCode15 {
             return result;
         }
         Arrays.sort(nums);
-        for (int i = 0 ; i < len ; i++){
+        for (int i = 0; i < len; i++) {
             // 如果nums[i] > 0 直接跳出循环
             if (nums[i] > 0)
                 break;
             // 去除重复
-            if (i > 0 && nums[i] == nums[i-1] )
+            if (i > 0 && nums[i] == nums[i - 1])
                 continue;
-            int L = i+1;
+            int L = i + 1;
             int R = len - 1;
-            while (L < R){
+            while (L < R) {
                 int sum = nums[i] + nums[R] + nums[L];
-                if (sum == 0){
-                    result.add(Arrays.asList(nums[i],nums[L],nums[R]));
+                if (sum == 0) {
+                    result.add(Arrays.asList(nums[i], nums[L], nums[R]));
                     // 去重
-                    while (L < R && nums[L] == nums[L+1]) L++;
+                    while (L < R && nums[L] == nums[L + 1]) L++;
                     // 去重
-                    while (L < R && nums[R] == nums[R-1]) R--;
+                    while (L < R && nums[R] == nums[R - 1]) R--;
                     L++;
                     R--;
                 }
